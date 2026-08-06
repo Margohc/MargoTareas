@@ -7,6 +7,9 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Scanner lector = new Scanner(System.in);
 		ArrayList <Estudiante> estudiantes = new ArrayList <Estudiante>();
+		System.out.print("Cuántos estudiantes desea registrar? ");
+		int cantidad = scanner.nextInt();
+		scanner.nextLine();
 		
 		while (true) {
 			System.out.println("1. Añadir estudiante: ");
@@ -26,6 +29,16 @@ public class Main {
 				estudiantes.setNombre(nombre);
 				estudiantes.add(estudiante);	
 			}else if (opcion == 2) {
+				System.out.println("\n ***Lista de estudiantes ***");
+				System.out.println("   Nombre");
+				System.out.println("                  Apellido");
+				estudiantes.add(new Estudiante("Ana","Paredes"));
+				for (int i = 0; i < estudiantes.size(); i++) {
+
+				    System.out.println(estudiantes.get(i).getNombre());
+
+				}
+				
 				
 			}else if (opcion == 3) {
 				
