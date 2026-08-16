@@ -2,162 +2,167 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Partido {
-	private int nroFecha;
-	private LocalDateTime fechaHora;
-	private Cancha cancha;
-	private Equipo equipoLocal;
-	private Equipo equipoVisitante;
-	private ArrayList<Arbitro> arbitros;
-	private int golesLocal;
-	private int golesVisitante;
-	private ArrayList<Amonestacion> tarjetas;
-	private ArrayList<Gol> goles;
-	private boolean partidoTerminado;
+    private int nroFecha;
+    private LocalDateTime fechaHora;
+    private Cancha cancha;
+    private Equipo local;
+    private Equipo visitante;
+    private ArrayList<Arbitro> arbitros;
+    private int golesLocal;
+    private int golesVisitante;
+    private ArrayList<Amonestacion> tarjetas;
+    private ArrayList<Gol> goles;
 
-	public Partido(int nroFecha, int dia, int mes, int year, int hora, int min, Cancha cancha, Equipo equipoLocal,
-			Equipo equipoVisitante) {
-		super();
-		this.nroFecha = nroFecha;
-		this.fechaHora = LocalDateTime.of(year, mes, dia, hora, min);
-		this.cancha = cancha;
-		this.equipoLocal = equipoLocal;
-		this.equipoVisitante = equipoVisitante;
-		this.arbitros = new ArrayList<Arbitro>();
-		this.golesLocal = 0;
-		this.golesVisitante = 0;
-		this.tarjetas = new ArrayList<Amonestacion>();
-		this.goles = new ArrayList<Gol>();
-		this.partidoTerminado = false;
-	}
+    // Constructor
+    public Partido(int nroFecha, LocalDateTime fechaHora, Cancha cancha, Equipo local, Equipo visitante) {
+        this.nroFecha = nroFecha;
+        this.fechaHora = fechaHora;
+        this.cancha = cancha;
+        this.local = local;
+        this.visitante = visitante;
+        this.arbitros = new ArrayList<>();
+        this.golesLocal = 0;
+        this.golesVisitante = 0;
+        this.tarjetas = new ArrayList<>();
+        this.goles = new ArrayList<>();
+    }
 
-	public int getNroFecha() {
-		return nroFecha;
-	}
+    // Getters y Setters
+    public int getNroFecha() {
+        return nroFecha;
+    }
 
-	public LocalDateTime getFechaHora() {
-		return fechaHora;
-	}
+    public void setNroFecha(int nroFecha) {
+        this.nroFecha = nroFecha;
+    }
 
-	public Cancha getCancha() {
-		return cancha;
-	}
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
+    }
 
-	public Equipo getEquipoLocal() {
-		return equipoLocal;
-	}
+    public void setFechaHora(LocalDateTime fechaHora) {
+        this.fechaHora = fechaHora;
+    }
 
-	public Equipo getEquipoVisitante() {
-		return equipoVisitante;
-	}
+    public Cancha getCancha() {
+        return cancha;
+    }
 
-	public ArrayList<Arbitro> getArbitros() {
-		return arbitros;
-	}
+    public void setCancha(Cancha cancha) {
+        this.cancha = cancha;
+    }
 
-	public int getGolesLocal() {
-		return golesLocal;
-	}
+    public Equipo getLocal() {
+        return local;
+    }
 
-	public int getGolesVisitante() {
-		return golesVisitante;
-	}
+    public void setLocal(Equipo local) {
+        this.local = local;
+    }
 
-	public ArrayList<Amonestacion> getTarjetas() {
-		return tarjetas;
-	}
+    public Equipo getVisitante() {
+        return visitante;
+    }
 
-	public ArrayList<Gol> getGoles() {
-		return goles;
-	}
+    public void setVisitante(Equipo visitante) {
+        this.visitante = visitante;
+    }
 
-	public boolean isPartidoTerminado() {
-		return partidoTerminado;
-	}
+    public ArrayList<Arbitro> getArbitros() {
+        return arbitros;
+    }
 
-	public void setNroFecha(int nroFecha) {
-		this.nroFecha = nroFecha;
-	}
+    public void setArbitros(ArrayList<Arbitro> arbitros) {
+        this.arbitros = arbitros;
+    }
 
-	public void setFechaHora(LocalDateTime fechaHora) {
-		this.fechaHora = fechaHora;
-	}
+    public int getGolesLocal() {
+        return golesLocal;
+    }
 
-	public void setCancha(Cancha cancha) {
-		this.cancha = cancha;
-	}
+    public void setGolesLocal(int golesLocal) {
+        this.golesLocal = golesLocal;
+    }
 
-	public void setEquipoLocal(Equipo equipoLocal) {
-		this.equipoLocal = equipoLocal;
-	}
+    public int getGolesVisitante() {
+        return golesVisitante;
+    }
 
-	public void setEquipoVisitante(Equipo equipoVisitante) {
-		this.equipoVisitante = equipoVisitante;
-	}
+    public void setGolesVisitante(int golesVisitante) {
+        this.golesVisitante = golesVisitante;
+    }
 
-	public void setArbitros(ArrayList<Arbitro> arbitros) {
-		this.arbitros = arbitros;
-	}
+    public ArrayList<Amonestacion> getTarjetas() {
+        return tarjetas;
+    }
 
-	public void setGolesLocal(int golesLocal) {
-		this.golesLocal = golesLocal;
-	}
+    public void setTarjetas(ArrayList<Amonestacion> tarjetas) {
+        this.tarjetas = tarjetas;
+    }
 
-	public void setGolesVisitante(int golesVisitante) {
-		this.golesVisitante = golesVisitante;
-	}
+    public ArrayList<Gol> getGoles() {
+        return goles;
+    }
 
-	public void setTarjetas(ArrayList<Amonestacion> tarjetas) {
-		this.tarjetas = tarjetas;
-	}
+    public void setGoles(ArrayList<Gol> goles) {
+        this.goles = goles;
+    }
 
-	public void setGoles(ArrayList<Gol> goles) {
-		this.goles = goles;
-	}
+    // Métodos adicionales
+    public void addArbitro(Arbitro arbitro) {
+        arbitros.add(arbitro);
+    }
 
-	public void setPartidoTerminado(boolean partidoTerminado) {
-		this.partidoTerminado = partidoTerminado;
-	}
+    public void anotoGolLocal(Jugador jugador, int min) {
+        goles.add(new Gol(jugador, min, true));
+        local.anotoGolFavor();
+        visitante.anotaronGolContra();
+        jugador.anotoGol();
+        golesLocal++;
+    }
 
-	public void addArbitro(Arbitro arbitro) {
-		arbitros.add(arbitro);
-	}
+    public void anotoGolVisitante(Jugador jugador, int min) {
+        goles.add(new Gol(jugador, min, true));
+        local.anotaronGolContra();
+        visitante.anotoGolFavor();
+        jugador.anotoGol();
+        golesVisitante++;
+    }
+    
+    public void amonestacionLocal(String tipo, Jugador j, int min) {
+    	tarjetas.add(new Amonestacion(j, min, tipo));
+    	if(tipo.equals("Amarilla")) {
+    		j.tieneTarjetaAmarilla();
+    	}else if(tipo.equals("Roja")) {
+    		j.expulsado();
+    	}
+    }
+    
+    public void amonestacionVisitante(String tipo, Jugador j, int min) {
+    	tarjetas.add(new Amonestacion(j, min, tipo));
+    	if(tipo.equals("Amarilla")) {
+    		j.tieneTarjetaAmarilla();
+    	}else if(tipo.equals("Roja")) {
+    		j.expulsado();
+    	}
+    }
 
-	public void anotoGolLocal(Jugador jugador, int minuto) {
-		Gol gol = new Gol(jugador, minuto, true);
-		goles.add(gol);
-		golesLocal++;
-		jugador.anotoGol();
-	}
+    public void terminarPartido() {
+        if(golesLocal > golesVisitante) {
+        	local.ganoPartido();
+        	visitante.perdioPartido();
+        }else if(golesVisitante>golesLocal) {
+        	local.perdioPartido();
+        	visitante.ganoPartido();
+        }else {
+        	local.empatoPartido();
+        	visitante.empatoPartido();
+        }
+    }
 
-	public void anotoGolVisitante(Jugador jugador, int minuto) {
-		Gol gol = new Gol(jugador, minuto, true);
-		goles.add(gol);
-		golesVisitante++;
-		jugador.anotoGol();
-	}
-
-	public void amonestacionLocal(Jugador jugador, int minuto, String tipo) {
-		Amonestacion amonestacion = new Amonestacion(jugador, minuto, tipo);
-		tarjetas.add(amonestacion);
-		jugador.setTarjetasAmarillas(jugador.getTarjetasAmarillas() + 1);
-	}
-
-	public void amonestacionVisitante(Jugador jugador, int minuto, String tipo) {
-		Amonestacion amonestacion = new Amonestacion(jugador, minuto, tipo);
-		tarjetas.add(amonestacion);
-		jugador.setTarjetasAmarillas(jugador.getTarjetasAmarillas() + 1);
-	}
-
-	public void terminarPartido() {
-		partidoTerminado = true;
-	}
-
-	@Override
-	public String toString() {
-		return "Partido [nroFecha=" + nroFecha + ", fechaHora=" + fechaHora + ", cancha=" + cancha + ", equipoLocal="
-				+ equipoLocal + ", equipoVisitante=" + equipoVisitante + ", arbitros=" + arbitros + ", golesLocal="
-				+ golesLocal + ", golesVisitante=" + golesVisitante + ", tarjetas=" + tarjetas + ", goles=" + goles
-				+ ", partidoTerminado=" + partidoTerminado + "]";
-	}
-
+    // Método toString
+    @Override
+    public String toString() {
+        return "Partido [nroFecha=" + nroFecha + ", fechaHora=" + fechaHora + ", golesLocal=" + golesLocal + ", golesVisitante=" + golesVisitante + "]";
+    }
 }

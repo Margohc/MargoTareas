@@ -1,45 +1,46 @@
+
 import java.time.LocalDate;
 
 public class Arbitro {
-	private String nombre;
-	private LocalDate fechaNacimiento;
-	private boolean estadoEnCampeonato;
+    private String nombre;
+    private LocalDate fechaNacimiento;
+    private boolean estadoEnCampeonato;
 
-	public Arbitro(String nombre, int dia, int mes, int year, boolean estadoEnCampeonato) {
-		super();
-		this.nombre = nombre;
-		this.fechaNacimiento = LocalDate.of(year, mes, dia);
-		this.estadoEnCampeonato = estadoEnCampeonato;
-	}
+    // Constructor
+    public Arbitro(String nombre, LocalDate fechaNacimiento, boolean estadoEnCampeonato) {
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.estadoEnCampeonato = estadoEnCampeonato;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    // Getters y Setters
+    public String getNombre() {
+        return nombre;
+    }
 
-	public LocalDate getFechaNacimiento() {
-		return fechaNacimiento;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public boolean isEstadoEnCampeonato() {
-		return estadoEnCampeonato;
-	}
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
-	public void setFechaNacimiento(LocalDate fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
+    public boolean isEstadoEnCampeonato() {
+        return estadoEnCampeonato;
+    }
 
-	public void setEstadoEnCampeonato(boolean estadoEnCampeonato) {
-		this.estadoEnCampeonato = estadoEnCampeonato;
-	}
+    public void setEstadoEnCampeonato(boolean estadoEnCampeonato) {
+        this.estadoEnCampeonato = estadoEnCampeonato;
+    }
 
-	@Override
-	public String toString() {
-		return "Arbitro [nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", estadoEnCampeonato="
-				+ estadoEnCampeonato + "]";
-	}
-
+    // Método toString
+    @Override
+    public String toString() {
+        return "Arbitro [nombre=" + nombre + "]";
+    }
 }

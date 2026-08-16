@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundialito de Canchitas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app">
+        <section class="panel registro" id="registro">
+            <div>
+                <p class="etiqueta">Torneo relampago</p>
+                <h1>Mundialito de Canchitas</h1>
+                <p class="descripcion">Registra participantes, arma equipos de dos al azar y juega por descarte hasta tener campeones.</p>
+            </div>
+
+            <form id="formCantidad" class="formulario">
+                <label for="cantidad">Cantidad de participantes</label>
+                <div class="fila-control">
+                    <input type="number" id="cantidad" min="4" step="2" placeholder="Ej. 8" required>
+                    <button type="submit">Crear lista</button>
+                </div>
+                <small>Debe ser un numero par y minimo 4 participantes.</small>
+            </form>
+
+            <form id="formParticipantes" class="formulario oculto">
+                <div class="cabecera-form">
+                    <h2>Participantes</h2>
+                    <button type="button" id="btnVolverCantidad" class="boton-secundario">Cambiar cantidad</button>
+                </div>
+                <div id="camposParticipantes" class="campos"></div>
+                <button type="submit">Sortear equipos</button>
+            </form>
+        </section>
+
+        <section class="panel tablero">
+            <div class="cabecera-seccion">
+                <div>
+                    <p class="etiqueta">Equipos</p>
+                    <h2>Duplas sorteadas</h2>
+                </div>
+                <button id="btnReiniciar" class="boton-secundario">Reiniciar</button>
+            </div>
+            <div id="equipos" class="lista-vacia">Todavia no hay equipos.</div>
+        </section>
+
+        <section class="panel tablero">
+            <div class="cabecera-seccion">
+                <div>
+                    <p class="etiqueta">Descarte</p>
+                    <h2>Partidos</h2>
+                </div>
+                <span id="rondaActual" class="pill">Ronda 0</span>
+            </div>
+            <div id="partidos" class="lista-vacia">Los partidos apareceran despues del sorteo.</div>
+        </section>
+
+        <section class="panel tabla">
+            <div class="cabecera-seccion">
+                <div>
+                    <p class="etiqueta">Ranking</p>
+                    <h2>Tabla de posiciones</h2>
+                </div>
+            </div>
+            <div id="tabla" class="lista-vacia">Sin resultados registrados.</div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
