@@ -4,14 +4,12 @@ public class Cancha {
     private String direccion;
     private String ciudad;
 
-    // Constructor
+
     public Cancha(String nombre, String direccion, String ciudad) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.ciudad = ciudad;
     }
-
-    // Getters y Setters
     public String getNombre() {
         return nombre;
     }

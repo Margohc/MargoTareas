@@ -11,7 +11,6 @@ public class Equipo {
     private int partidosPerdidos;
     private int partidosEmpatados;
 
-    // Constructor
     public Equipo(String nombre) {
         this.nombre = nombre;
         this.jugadores = new ArrayList<Jugador>();
@@ -22,8 +21,6 @@ public class Equipo {
         this.partidosPerdidos = 0;
         this.partidosEmpatados = 0;
     }
-
-    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -89,24 +86,29 @@ public class Equipo {
     }
 
     // Métodos adicionales
-    public void addJugador(String nombre, int dorsal, int d, int m, int a, boolean estado) {
-        this.jugadores.add(new Jugador(nombre, dorsal, d, m, a, estado));
+    public void addJugador(String nombre, int a, int m, int d, int dorsal, boolean estadoCampeonato) {
+        this.jugadores.add(new Jugador(nombre, a, m, d, dorsal, estadoCampeonato));
     }
+    
+    
     
     public void addJugador() {
         Scanner lector = new Scanner(System.in);
         System.out.println("Ingrese el nombre del jugador:");
-        String nom = lector.nextLine();
-        System.out.println("Ingrese el dorsal del jugador:");
-        int dor =  lector.nextInt();
+        String nombre = lector.nextLine();
         System.out.println("Ingrese el dia de nacimiento:");
         int dia =  lector.nextInt();
         System.out.println("Ingrese el mes de nacimiento:");
         int mes =  lector.nextInt();
         System.out.println("Ingrese el anio de nacimiento:");
         int a =  lector.nextInt();
-        jugadores.add(new Jugador(nom, dor, dia, mes, a, true));
-    }
+        System.out.println("Ingrese el dorsal del jugador:");
+        int dorsal=  lector.nextInt();
+        
+        jugadores.add(
+                new Jugador(nombre, a, mes, dia, dorsal, true)
+                );
+        }
     
     public void anotoGolFavor() {
         golesFavor++;

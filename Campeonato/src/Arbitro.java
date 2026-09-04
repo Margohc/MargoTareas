@@ -2,14 +2,36 @@
 import java.time.LocalDate;
 
 public class Arbitro {
+	private DatosInformacion datosInformacion;
+
+	public Arbitro(DatosInformacion datosInformacion) {
+		super();
+		this.datosInformacion = datosInformacion;
+	}
+
+	public DatosInformacion getDatosInformacion() {
+		return datosInformacion;
+	}
+
+	public void setDatosInformacion(DatosInformacion datosInformacion) {
+		this.datosInformacion = datosInformacion;
+	}
+
+	@Override
+	public String toString() {
+		return "Arbitro [datosInformacion=" + datosInformacion + "]";
+	}
+	
+	
+	/*
     private String nombre;
-    private LocalDate fechaNacimiento;
+    //private LocalDate fechaNacimiento;
     private boolean estadoEnCampeonato;
 
     // Constructor
     public Arbitro(String nombre, LocalDate fechaNacimiento, boolean estadoEnCampeonato) {
         this.nombre = nombre;
-        this.fechaNacimiento = fechaNacimiento;
+      //  this.fechaNacimiento = fechaNacimiento;
         this.estadoEnCampeonato = estadoEnCampeonato;
     }
 
@@ -22,13 +44,13 @@ public class Arbitro {
         this.nombre = nombre;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
+    //public LocalDate getFechaNacimiento() {
+  //      //return fechaNacimiento;
+   // }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
+   // public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    //    this.fechaNacimiento = fechaNacimiento;
+   // }
 
     public boolean isEstadoEnCampeonato() {
         return estadoEnCampeonato;
@@ -42,5 +64,5 @@ public class Arbitro {
     @Override
     public String toString() {
         return "Arbitro [nombre=" + nombre + "]";
-    }
+    }*/
 }

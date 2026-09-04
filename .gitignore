@@ -7,3 +7,4 @@
 *.bak
 *.classpath
 *.project
+.DS_Store

@@ -1,18 +1,64 @@
+//import java.time.LocalDate;
+
 import java.time.LocalDate;
 
-public class Jugador {
-    private String nombre;
+public class Jugador extends DatosInformacion{
+ // private String nombre;
     private int dorsal;
-    private LocalDate fechaNacimiento;
-    private boolean estadoEnCampeonato;
+   // private LocalDate fechaNacimiento;
+   // private boolean estadoEnCampeonato;
     private int golesAnotados;
     private int tarjetasAmarillas;
+    
+    public Jugador(String nombre, int a, int m, int d, int dorsal, boolean estadoCampeonato) {
 
-    // Constructor
+        super(nombre, a, m, d, estadoCampeonato);
+
+        this.dorsal = dorsal;
+        this.golesAnotados = 0;
+        this.tarjetasAmarillas = 0;
+    }
+
+    public Jugador(String nombre, int a, int m, int d, int dorsal, int goles, int tarjetas, boolean estadoCampeonato) {
+
+        super(nombre, a, m, d , estadoCampeonato);
+
+        this.dorsal = dorsal;
+        this.golesAnotados = goles;
+        this.tarjetasAmarillas = tarjetas;
+    }
+
+	public int getDorsal() {
+		return dorsal;
+	}
+
+	public void setDorsal(int dorsal) {
+		this.dorsal = dorsal;
+	}
+
+	public int getGolesAnotados() {
+		return golesAnotados;
+	}
+
+	public void setGolesAnotados(int golesAnotados) {
+		this.golesAnotados = golesAnotados;
+	}
+
+	public int getTarjetasAmarillas() {
+		return tarjetasAmarillas;
+	}
+
+	public void setTarjetasAmarillas(int tarjetasAmarillas) {
+		this.tarjetasAmarillas = tarjetasAmarillas;
+	}
+	
+	
+
+/*
     public Jugador(String nombre, int dorsal, int d, int m, int a, boolean estado) {
         this.nombre = nombre;
         this.dorsal = dorsal;
-        this.fechaNacimiento = LocalDate.of(a, m, d);
+      //  this.fechaNacimiento = LocalDate.of(a, m, d);
         this.estadoEnCampeonato = estado;
         this.golesAnotados = 0;
         this.tarjetasAmarillas = 0;
@@ -21,13 +67,12 @@ public class Jugador {
     public Jugador(String nombre, int dorsal, int d, int m, int a, boolean estado, int goles, int tarjetas) {
         this.nombre = nombre;
         this.dorsal = dorsal;
-        this.fechaNacimiento = LocalDate.of(a, m, d);
+       // this.fechaNacimiento = LocalDate.of(a, m, d);
         this.estadoEnCampeonato = estado;
         this.golesAnotados = goles;
         this.tarjetasAmarillas = tarjetas;
     }
 
-    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -44,13 +89,13 @@ public class Jugador {
         this.dorsal = dorsal;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
+    //public LocalDate getFechaNacimiento() {
+  //      return fechaNacimiento;
+  //  }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
+  //  public void setFechaNacimiento(LocalDate fechaNacimiento) {
+      //  this.fechaNacimiento = fechaNacimiento;
+  //  }
 
     public boolean isEstadoEnCampeonato() {
         return estadoEnCampeonato;
@@ -59,27 +104,15 @@ public class Jugador {
     public void setEstadoEnCampeonato(boolean estadoEnCampeonato) {
         this.estadoEnCampeonato = estadoEnCampeonato;
     }
+*/
 
-    public int getGolesAnotados() {
-        return golesAnotados;
-    }
-
-    public void setGolesAnotados(int golesAnotados) {
-        this.golesAnotados = golesAnotados;
-    }
-
-    public int getTarjetasAmarillas() {
-        return tarjetasAmarillas;
-    }
-
-    public void setTarjetasAmarillas(int tarjetasAmarillas) {
-        this.tarjetasAmarillas = tarjetasAmarillas;
-    }
-
-    // Métodos de instancia
+//// 
+    
     public int getEdad() {
-        return LocalDate.now().getYear() - this.fechaNacimiento.getYear();
+
+        return LocalDate.now().getYear()- getFechaNacimiento().getYear();
     }
+    
 
     public void anotoGol() {
         this.golesAnotados++;
@@ -94,13 +127,17 @@ public class Jugador {
     }
 
     public void expulsado() {
-        this.estadoEnCampeonato = false;
+
+        this.setEstadoCampeonato(false);
         this.tarjetasAmarillas = 0;
     }
+    
 
-    // Método toString
-    @Override
-    public String toString() {
-        return nombre + "\t" + dorsal+ "\t" +estadoEnCampeonato+ "\t" +golesAnotados;
-    }
+    
 }
+    
+    
+    
+    
+    
+  

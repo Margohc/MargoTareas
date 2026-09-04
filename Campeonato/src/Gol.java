@@ -18,8 +18,10 @@ public class Gol extends EventoPartido {
         estado = false;
     }
 
-    @Override
-    public String toString() {
-        return "Gol [jugador=" + getJugador().getNombre() + ", minuto=" + getMinuto() + ", estado=" + estado + "]";
-    }
+	@Override
+	public String toString() {
+		return "Gol [estado=" + estado + ", getJugador()=" + getJugador() + ", getMinuto()=" + getMinuto() + "]";
+	}
+
+    
 }
