@@ -21,11 +21,17 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--texto);
-    background: var(--fondo);
+    background:
+        linear-gradient(rgba(244, 247, 241, 0.85), rgba(244, 247, 241, 0.85)),
+        url("fondo-mundialito.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
 button,
-input {
+input,
+textarea {
     font: inherit;
 }
 
@@ -81,8 +87,47 @@ button:disabled {
     gap: 24px;
 }
 
+.sorteo {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 560px);
+    justify-content: center;
+    gap: 16px;
+    align-items: start;
+    text-align: center;
+}
+
+.sorteo-compacto {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.sorteo-compacto .ruleta-area {
+    min-height: 220px;
+}
+
+.sorteo-compacto .ruleta {
+    width: 190px;
+}
+
+.sorteo-compacto .opcion-ruleta {
+    font-size: 12px;
+    width: 84px;
+}
+
+.sorteo-compacto .centro-ruleta {
+    width: 70px;
+    height: 70px;
+    border-width: 5px;
+    font-size: 14px;
+}
+
 .tabla {
     grid-column: 1 / -1;
+}
+
+.intro-sorteo {
+    max-width: 520px;
+    justify-self: center;
 }
 
 .etiqueta {
@@ -143,7 +188,25 @@ input {
     background: #fbfdfb;
 }
 
-input:focus {
+textarea {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+    border: 1px solid var(--linea);
+    border-radius: 7px;
+    padding: 10px 12px;
+    color: var(--texto);
+    background: #fbfdfb;
+    line-height: 1.35;
+}
+
+input[type="number"] {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+input:focus,
+textarea:focus {
     outline: 3px solid rgba(36, 116, 71, 0.18);
     border-color: var(--verde);
 }
@@ -158,6 +221,22 @@ small {
     gap: 10px;
 }
 
+.fila-control-simple {
+    grid-template-columns: 1fr;
+}
+
+.configuracion-equipos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.configuracion-equipos div {
+    display: grid;
+    gap: 8px;
+    text-align: left;
+}
+
 .campos {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -166,6 +245,119 @@ small {
 
 .oculto {
     display: none;
+}
+
+.ruleta-area {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 310px;
+}
+
+.indicador-ruleta {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 34px solid var(--texto);
+}
+
+.ruleta {
+    position: relative;
+    width: min(310px, 76vw);
+    aspect-ratio: 1;
+    border: 12px solid #ffffff;
+    border-radius: 50%;
+    background:
+        conic-gradient(
+            var(--verde) 0deg 120deg,
+            #2c5fd5 120deg 240deg,
+            var(--rojo) 240deg 360deg
+        );
+    box-shadow: var(--sombra);
+    transition: transform 3s cubic-bezier(0.12, 0.72, 0.14, 1);
+}
+
+.opcion-ruleta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 92px;
+    min-height: 28px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: 0 1px 7px rgba(0, 0, 0, 0.35);
+    transform-origin: center;
+    line-height: 1.1;
+    word-break: break-word;
+}
+
+.centro-ruleta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 86px;
+    height: 86px;
+    border: 6px solid #ffffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--texto);
+    background: var(--amarillo);
+    font-size: 15px;
+    font-weight: 800;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 24px rgba(24, 32, 28, 0.18);
+}
+
+.centro-ruleta:hover {
+    color: var(--texto);
+    background: #f8df78;
+}
+
+.acciones-sorteo {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.opciones-juego {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.opciones-juego span {
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: var(--texto);
+    background: #fbfdfb;
+    font-weight: 800;
+    text-align: left;
+}
+
+.resultado-juego {
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    padding: 14px;
+    color: var(--suave);
+    background: #fbfdfb;
+    font-weight: 800;
+    text-align: center;
+}
+
+.resultado-juego strong {
+    color: var(--texto);
 }
 
 .cabecera-form,
@@ -253,6 +445,7 @@ small {
 .equipo-marcador {
     display: grid;
     gap: 8px;
+    text-align: left;
 }
 
 .equipo-marcador strong {
@@ -263,11 +456,15 @@ small {
     width: 64px;
     height: 48px;
     border-radius: 7px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     background: var(--amarillo);
     font-size: 24px;
     font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    padding: 0 14px;
+    text-align: right;
 }
 
 .acciones-partido {
@@ -284,26 +481,42 @@ small {
 
 .fila-tabla {
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr) repeat(3, 92px);
+    grid-template-columns: 42px minmax(0, 1fr) repeat(2, minmax(112px, auto)) 92px;
     gap: 12px;
     align-items: center;
+    text-align: left;
 }
 
 .puesto {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     color: var(--verde-oscuro);
     background: var(--celeste);
     font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    padding-right: 10px;
+    text-align: right;
 }
 
 .dato-tabla {
-    text-align: right;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    align-items: center;
     color: var(--suave);
     font-weight: 700;
+    text-align: left;
+}
+
+.numero-tabla {
+    min-width: 28px;
+    color: var(--texto);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
 }
 
 .campeon {
@@ -325,13 +538,22 @@ small {
         grid-template-columns: 1fr;
     }
 
+    .sorteo {
+        grid-template-columns: 1fr;
+    }
+
     .registro,
     .tabla {
         grid-column: auto;
         grid-row: auto;
     }
 
+    .ruleta-area {
+        min-height: 300px;
+    }
+
     .campos,
+    .configuracion-equipos,
     .fila-control,
     .controles-puntos,
     .fila-tabla {
@@ -346,7 +568,9 @@ small {
         margin: 0 auto;
     }
 
-    .dato-tabla {
-        text-align: left;
+    .puesto,
+    .puntos,
+    .numero-tabla {
+        justify-self: end;
     }
 }
