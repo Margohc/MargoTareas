@@ -1,0 +1,5 @@
+1#Comprar pan#1
+2#Hacer la practica#1
+3#Cocinar#2
+4#Leer#2
+5#Comer#3
